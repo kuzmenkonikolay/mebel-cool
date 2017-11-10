@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110135512) do
+ActiveRecord::Schema.define(version: 20171110140120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,14 @@ ActiveRecord::Schema.define(version: 20171110135512) do
   end
 
   create_table "colors", force: :cascade do |t|
-    t.integer "model_id"
     t.string "name"
+  end
+
+  create_table "colors_furnitures", force: :cascade do |t|
+    t.bigint "furniture_id"
+    t.bigint "color_id"
+    t.index ["color_id"], name: "index_colors_furnitures_on_color_id"
+    t.index ["furniture_id"], name: "index_colors_furnitures_on_furniture_id"
   end
 
   create_table "furniture_categories", force: :cascade do |t|
@@ -58,6 +64,7 @@ ActiveRecord::Schema.define(version: 20171110135512) do
   end
 
   create_table "pictures", force: :cascade do |t|
+    t.string "type"
     t.integer "model_id"
     t.string "file"
     t.datetime "created_at", null: false
@@ -81,6 +88,8 @@ ActiveRecord::Schema.define(version: 20171110135512) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "colors_furnitures", "colors"
+  add_foreign_key "colors_furnitures", "furnitures"
   add_foreign_key "furniture_categories_furnitures", "furniture_categories"
   add_foreign_key "furniture_categories_furnitures", "furnitures"
 end

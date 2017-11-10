@@ -21,6 +21,10 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'activeadmin'
+gem 'carrierwave', '~> 1.0'
+gem "fog-aws"
+gem "mini_magick"
+gem 'figaro'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
