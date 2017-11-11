@@ -1,6 +1,6 @@
 class Furniture < ApplicationRecord
   has_many :furniture_pictures, :class_name => 'FurniturePicture', :foreign_key => 'model_id', dependent: :destroy
-  has_and_belongs_to_many :colors
+  has_and_belongs_to_many :furniture_colors, :class_name => 'FurnitureColor'
   has_and_belongs_to_many :furniture_categories
 
   attr_accessor :furniture_pictures_attributes

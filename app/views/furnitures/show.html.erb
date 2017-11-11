@@ -204,7 +204,7 @@
       <h3>Цвета</h3>
       <ul class="product-categories color">
         <% @colors.each do |color| %>
-            <li class="cat-item cat-item-42"><a href="<%= furnitures_path(type: 'category', name: color.name)%>"><%= color.name %></a> <span class="count">(<%= color.furnitures.count %>)</span></li>
+            <li class="cat-item cat-item-42"><a href="<%= furnitures_path(type: 'color', name: color.name)%>"><%= color.name %></a> <span class="count">(<%= color.furnitures.count %>)</span></li>
         <% end %>
       </ul>
     </div>

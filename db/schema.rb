@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111110805) do
+ActiveRecord::Schema.define(version: 20171111154338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,37 @@ ActiveRecord::Schema.define(version: 20171111110805) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "appliances", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.float "price"
+    t.integer "discount", default: 0
+    t.float "widths"
+    t.float "height"
+    t.float "depth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "type"
+    t.string "name"
+  end
+
+  create_table "categories_aplliances", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "appliance_id"
+    t.index ["appliance_id"], name: "index_categories_aplliances_on_appliance_id"
+    t.index ["category_id"], name: "index_categories_aplliances_on_category_id"
+  end
+
+  create_table "categories_furnitures", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "furniture_id"
+    t.index ["category_id"], name: "index_categories_furnitures_on_category_id"
+    t.index ["furniture_id"], name: "index_categories_furnitures_on_furniture_id"
+  end
+
   create_table "client_overviews", force: :cascade do |t|
     t.string "file"
     t.text "review"
@@ -44,8 +75,16 @@ ActiveRecord::Schema.define(version: 20171111110805) do
   end
 
   create_table "colors", force: :cascade do |t|
+    t.string "type"
     t.string "name"
     t.string "rgb"
+  end
+
+  create_table "colors_appliances", force: :cascade do |t|
+    t.bigint "appliance_id"
+    t.bigint "color_id"
+    t.index ["appliance_id"], name: "index_colors_appliances_on_appliance_id"
+    t.index ["color_id"], name: "index_colors_appliances_on_color_id"
   end
 
   create_table "colors_furnitures", force: :cascade do |t|
@@ -53,17 +92,6 @@ ActiveRecord::Schema.define(version: 20171111110805) do
     t.bigint "color_id"
     t.index ["color_id"], name: "index_colors_furnitures_on_color_id"
     t.index ["furniture_id"], name: "index_colors_furnitures_on_furniture_id"
-  end
-
-  create_table "furniture_categories", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "furniture_categories_furnitures", force: :cascade do |t|
-    t.bigint "furniture_category_id"
-    t.bigint "furniture_id"
-    t.index ["furniture_category_id"], name: "index_furniture_categories_furnitures_on_furniture_category_id"
-    t.index ["furniture_id"], name: "index_furniture_categories_furnitures_on_furniture_id"
   end
 
   create_table "furnitures", force: :cascade do |t|
@@ -125,8 +153,12 @@ ActiveRecord::Schema.define(version: 20171111110805) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories_aplliances", "appliances"
+  add_foreign_key "categories_aplliances", "categories"
+  add_foreign_key "categories_furnitures", "categories"
+  add_foreign_key "categories_furnitures", "furnitures"
+  add_foreign_key "colors_appliances", "appliances"
+  add_foreign_key "colors_appliances", "colors"
   add_foreign_key "colors_furnitures", "colors"
   add_foreign_key "colors_furnitures", "furnitures"
-  add_foreign_key "furniture_categories_furnitures", "furniture_categories"
-  add_foreign_key "furniture_categories_furnitures", "furnitures"
 end

@@ -22,7 +22,7 @@ ActiveAdmin.register Furniture do
   form do |f|
     f.inputs do
       f.input :title
-      f.input :furniture_categories, collection: FurnitureCategory.all, input_html: {class: "select2", style: 'width: 80%;'}
+      f.input :furniture_categories, collection: Category.all, input_html: {class: "select2", style: 'width: 80%;'}
       f.input :availability
       f.input :colors, collection: Color.all, input_html: {class: "select2", style: 'width: 80%;'}
       f.input :widths
