@@ -19,7 +19,7 @@
 //= require style/jquery.mixitup.min.js
 //= require style/menu.js
 //= require style/modernizr.custom.min.js
-
 //= require style/responsiveslides.min.js
-//= require turbolinks
-//= require_tree .
+//= require style/nivo-lightbox.min.js
+//= require style/owl.carousel.js
+//= require_dir style

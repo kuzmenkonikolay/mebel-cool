@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110140120) do
+ActiveRecord::Schema.define(version: 20171111003106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20171110140120) do
 
   create_table "colors", force: :cascade do |t|
     t.string "name"
+    t.string "rgb"
   end
 
   create_table "colors_furnitures", force: :cascade do |t|
@@ -61,6 +62,8 @@ ActiveRecord::Schema.define(version: 20171110140120) do
     t.float "depth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "main_image"
+    t.integer "availability"
   end
 
   create_table "pictures", force: :cascade do |t|

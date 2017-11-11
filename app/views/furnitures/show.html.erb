@@ -1,0 +1,227 @@
+<div class="product">
+  <div class="container">
+    <div class="col-md-9 ctnt-bar">
+      <div class="content-bar">
+        <div class="single-page">
+          <ul class="product-head">
+            <li><a href="<%= root_path %>">Home</a> <span>::</span></li>
+            <li><a href="<%= furnitures_path %>">Products</a> <span>::</span></li>
+            <li class="active-page">single</li>
+            <div class="clear"> </div>
+          </ul>
+
+          <script>
+            jQuery(document).ready(function($){
+              $('#etalage').etalage({
+                thumb_image_width: 300,
+                thumb_image_height: 400,
+                source_image_width: 600,
+                source_image_height: 1000,
+                show_hint: true,
+//                click_callback: function(image_anchor, instance_id){
+//                  alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+//                }
+              });
+              // This is for the dropdown list example:
+              $('.dropdownlist').change(function(){
+                etalage_show( $(this).find('option:selected').attr('class') );
+              });
+
+            });
+          </script>
+          <!--//details-product-slider-->
+          <div class="details-left-slider">
+            <ul id="etalage">
+              <% @furniture.furniture_pictures.each do |img| %>
+                  <li>
+                    <img class="etalage_thumb_image" src="<%= img.file.for_zoom.url %>" />
+                    <img class="etalage_source_image" src="<%= img.file.url %>" />
+                  </li>
+              <% end %>
+              <div class="clearfix"></div>
+            </ul>
+          </div>
+          <div class="details-left-info">
+            <h3><%= @furniture.title %></h3>
+            <p class="availability">Доступность: <span class="color"><%= @furniture.availability %></span></p>
+            <div class="price_single">
+              <% if @furniture.discount > 0 %>
+                  <span class="reducedfrom"><%= @furniture.price %> р.</span>
+                  <span class="actual"><%= @furniture.price*(1 - @furniture.discount.to_f/100) %> р.</span>
+              <% else %>
+                  <span class="actual"><%= @furniture.price %></span>
+              <% end %>
+            </div>
+            <h2 class="quick">Описание:</h2>
+            <p class="quick_desc"> <%= @furniture.description %></p>
+            <ul class="product-colors">
+              <h3>Доступные цвета:</h3>
+              <% @furniture.colors.each do |color| %>
+                  <li style="background-color: <%= color.rgb %>;"><a href="#"><span> </span></a></li>
+              <% end %>
+              <div class="clear"> </div>
+            </ul>
+            <ul class="size">
+              <h3>Length</h3>
+              <li><a href="#">32</a></li>
+              <li><a href="#">34</a></li>
+            </ul>
+            <div class="quantity_box">
+              <ul class="product-qty">
+                <span>Количество:</span>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                </select>
+              </ul>
+            </div>
+            <div class="clearfix"></div>
+            <div class="single-but">
+              <input type="submit" value="add to cart"/>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="products-row contact-prod">
+          <h3>Latest Productss</h3>
+          <a href="single.html"><div class="product-grid">
+            <div class="more-product-info">
+              <span> </span>
+            </div>
+            <div class="product-img">
+              <img src="../assets/f11.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <div class="product-info-cust">
+                <a href="single.html">Details</a>
+              </div>
+              <div class="product-info-price">
+                <a href="single.html">&#8356;380</a>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+          </div></a>
+          <a href="single.html"><div class="product-grid">
+            <div class="more-product-info">
+              <span> </span>
+            </div>
+            <div class="product-img">
+              <img src="../assets/f2.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <div class="product-info-cust">
+                <a href="single.html">Details</a>
+              </div>
+              <div class="product-info-price">
+                <a href="single.html">&#8356;380</a>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+          </div></a>
+          <a href="single.html"><div class="product-grid product-gridy">
+            <div class="more-product-info">
+              <span> </span>
+            </div>
+            <div class="product-img">
+              <img src="../assets/f3.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <div class="product-info-cust">
+                <a href="single.html">Details</a>
+              </div>
+              <div class="product-info-price">
+                <a href="single.html">&#8356;380</a>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+          </div></a>
+          <a href="single.html"><div class="product-grid">
+            <div class="more-product-info">
+              <span> </span>
+            </div>
+            <div class="product-img">
+              <img src="../assets/f4.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <div class="product-info-cust">
+                <a href="single.html">Details</a>
+              </div>
+              <div class="product-info-price">
+                <a href="single.html">&#8356;380</a>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+          </div></a>
+          <a href="single.html"><div class="product-grid">
+            <div class="more-product-info">
+              <span> </span>
+            </div>
+            <div class="product-img">
+              <img src="../assets/f5.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <div class="product-info-cust">
+                <a href="single.html">Details</a>
+              </div>
+              <div class="product-info-price">
+                <a href="single.html">&#8356;380</a>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+          </div></a>
+          <a href="single.html"><div class="product-grid product-gridy">
+            <div class="more-product-info">
+              <span> </span>
+            </div>
+            <div class="product-img">
+              <img src="../assets/f6.jpg" alt="">
+            </div>
+            <div class="product-info">
+              <div class="product-info-cust">
+                <a href="single.html">Details</a>
+              </div>
+              <div class="product-info-price">
+                <a href="single.html">&#8356;380</a>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+          </div></a>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 sidebar_men">
+      <h3>Категории</h3>
+      <ul class="product-categories color">
+        <% @categories.each do |category| %>
+            <li class="cat-item cat-item-42"><a href="#"><%= category.name %></a> <span class="count">(<%= category.furnitures.count %>)</span></li>
+        <% end %>
+      </ul>
+      <h3>Цвета</h3>
+      <ul class="product-categories color">
+        <% @colors.each do |color| %>
+            <li class="cat-item cat-item-42"><a href="#"><%= color.name %></a> <span class="count">(<%= color.furnitures.count %>)</span></li>
+        <% end %>
+      </ul>
+      <h3>Sizes</h3>
+      <ul class="product-categories color"><li class="cat-item cat-item-42"><a href="#">L</a> <span class="count">(14)</span></li>
+        <li class="cat-item cat-item-60"><a href="#">M</a> <span class="count">(2)</span></li>
+        <li class="cat-item cat-item-63"><a href="#">S</a> <span class="count">(2)</span></li>
+        <li class="cat-item cat-item-54"><a href="#">XL</a> <span class="count">(8)</span></li>
+        <li class="cat-item cat-item-55"><a href="#">XS</a> <span class="count">(11)</span></li>
+      </ul>
+      <h3>Price</h3>
+      <ul class="product-categories"><li class="cat-item cat-item-42"><a href="#">200$-300$</a> <span class="count">(14)</span></li>
+        <li class="cat-item cat-item-60"><a href="#">300$-400$</a> <span class="count">(2)</span></li>
+        <li class="cat-item cat-item-63"><a href="#">400$-500$</a> <span class="count">(2)</span></li>
+        <li class="cat-item cat-item-54"><a href="#">500$-600$</a> <span class="count">(8)</span></li>
+        <li class="cat-item cat-item-55"><a href="#">600$-700$</a> <span class="count">(11)</span></li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
