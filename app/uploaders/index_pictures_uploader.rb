@@ -1,4 +1,4 @@
-class PicturesUploader < CarrierWave::Uploader::Base
+class IndexPicturesUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -29,22 +29,17 @@ class PicturesUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  version :thumb do
-    process resize_to_fill: [86,86]
+  version :home do
+    process resize_to_fill: [566,325]
   end
 
-  version :for_list do
-    process resize_to_fill: [196,157]
+  version :carousel_bg do
+    process resize_to_fill: [635,371]
   end
 
-  version :for_zoom do
-    process resize_to_fill: [356,356]
+  version :carousel_lt do
+    process resize_to_fill: [120,70]
   end
-
-  version :various do
-    process resize_to_fill: [408,307]
-  end
-
 
 
   # Add a white list of extensions which are allowed to be uploaded.

@@ -1,4 +1,4 @@
-class PicturesUploader < CarrierWave::Uploader::Base
+class ClientOverviewUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -29,23 +29,9 @@ class PicturesUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  version :thumb do
-    process resize_to_fill: [86,86]
+  version :round do
+    process resize_to_fill: [211,211]
   end
-
-  version :for_list do
-    process resize_to_fill: [196,157]
-  end
-
-  version :for_zoom do
-    process resize_to_fill: [356,356]
-  end
-
-  version :various do
-    process resize_to_fill: [408,307]
-  end
-
-
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

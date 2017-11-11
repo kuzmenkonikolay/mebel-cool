@@ -1,0 +1,2 @@
+class SimpleImage < IndexPicture
+end
