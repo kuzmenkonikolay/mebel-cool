@@ -9,4 +9,7 @@ class Furniture < ApplicationRecord
   mount_uploader :main_image, MainImageUploader
 
   enum availability: ['на складе', 'нет в наличии', 'под заказ']
+
+  validates_presence_of :title, :main_image, :price, :discount
+  validates :description, length: { minimum: 260}
 end

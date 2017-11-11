@@ -4,8 +4,7 @@
   width: 637px;
   height:488px;
   margin: 0 auto 0;
-  padding:10px 10px;
-  border: 1px solid#737171;
+  border: 1px solid #efefef;
 }
 
 /* line 72, scss/index.scss */
@@ -29,10 +28,9 @@
 
 /* line 87, scss/index.scss */
 #slide-con #thumbnails {
-width: 616px;
 height: 104px;
 z-index: 10;
-margin-top: 361px;
+margin-top: 371px;
 background: rgba(130, 130, 130, 0.6);
 -moz-transition: all 0.5s ease;
 -webkit-transition: all 0.5s ease;
@@ -151,8 +149,8 @@ margin: 0px 3px;
 
 #slide-con #thumbnails #left-arrow {
   margin-top: 50px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   display: inline-block;
   float: left;
 }
@@ -160,9 +158,9 @@ margin: 0px 3px;
 /* line 161, scss/index.scss */
 
 #slide-con #thumbnails #right-arrow {
- margin-top: 49px;
-margin-right: 10px;
-margin-left: 46px;
+ margin-top: 50px;
+margin-right: 20px;
+margin-left: 20px;
 display: inline-block;
 float: left;
 }
