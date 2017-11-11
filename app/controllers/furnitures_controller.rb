@@ -3,7 +3,13 @@ class FurnituresController < ApplicationController
 
   def index
     @categories = FurnitureCategory.all
-    @furnitures = Furniture.all
+    if params[:type] == 'category'
+      @furnitures = FurnitureCategory.find_by(name: params[:name]).furnitures
+    elsif params[:type] == 'color'
+      @furnitures = Color.find_by(name: params[:name]).furnitures
+    else
+      @furnitures = Furniture.all
+    end
     @colors = Color.all
   end
 

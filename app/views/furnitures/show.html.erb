@@ -198,13 +198,13 @@
       <h3>Категории</h3>
       <ul class="product-categories color">
         <% @categories.each do |category| %>
-            <li class="cat-item cat-item-42"><a href="#"><%= category.name %></a> <span class="count">(<%= category.furnitures.count %>)</span></li>
+            <li class="cat-item cat-item-42"><a href="<%= furnitures_path(type: 'category', name: category.name)%>"><%= category.name %></a> <span class="count">(<%= category.furnitures.count %>)</span></li>
         <% end %>
       </ul>
       <h3>Цвета</h3>
       <ul class="product-categories color">
         <% @colors.each do |color| %>
-            <li class="cat-item cat-item-42"><a href="#"><%= color.name %></a> <span class="count">(<%= color.furnitures.count %>)</span></li>
+            <li class="cat-item cat-item-42"><a href="<%= furnitures_path(type: 'category', name: color.name)%>"><%= color.name %></a> <span class="count">(<%= color.furnitures.count %>)</span></li>
         <% end %>
       </ul>
     </div>
