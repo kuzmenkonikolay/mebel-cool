@@ -354,7 +354,7 @@ float: left;
   height: 1px;
   }
   .news-right-grid-bottom:before {
-  content: url(../../../../../../Downloads/home_interio-web/web/images/top-arrow.png) no-repeat 0px 0px;
+  content: url(../../assets/top-arrow.png) no-repeat 0px 0px;
   display: none;
   }
   .top-btn.three {
