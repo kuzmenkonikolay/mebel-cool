@@ -49,15 +49,5 @@ ActiveAdmin.register Appliance do
       end
       super
     end
-
-    def update
-      params[:appliance][:appliance_picture_ids] = []
-      attributes = params[:appliance][:appliance_pictures_attributes]
-      attributes.keys.each do |key|
-        a_pic = AppliancePicture.create(file: attributes[key][:file])
-        params[:appliance][:appliance_picture_ids] << a_pic.id
-      end
-      super
-    end
   end
 end
