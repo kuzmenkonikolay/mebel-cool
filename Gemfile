@@ -28,6 +28,7 @@ gem 'figaro'
 
 gem 'jquery-rails'
 gem 'activeadmin_addons'
+gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

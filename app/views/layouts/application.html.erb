@@ -8,7 +8,6 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag 'application' %>
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <script type="text/javascript">
       jQuery(document).ready(function($) {
         $(".scroll").click(function(event){
@@ -46,12 +45,12 @@
         <div class="top-nav">
           <span class="menu"> </span>
           <ul class="cl-effect-16">
-            <li class="active"><a href="<%= root_path %>">Home</a></li>
-            <li><a href="about.html" data-hover="About">About</a></li>
-            <li><a href="latest.html" data-hover="Latest furniture">Latest furniture</a></li>
-            <li><a href="<%= furnitures_path %>" data-hover="Мебель">Мебель</a></li>
-            <li><a href="door.html" data-hover="Door Delivery">Door Delivery</a></li>
-            <li><a href="contact.html" data-hover="Contact">Contact</a></li>
+            <li class="<%= "#{controller_name}" == 'mains' ? 'active' : '' %>"><a href="<%= root_path %>" data-hover="Домашняя Страница">Домашняя Страница</a></li>
+            <li class="<%= "#{controller_name}" == 'abouts' ? 'active' : '' %>"><a href="<%= about_path %>" data-hover="О Нас">О Нас</a></li>
+            <li class="<%= "#{controller_name}_#{action_name}" == 'furnitures_latest' ? 'active' : '' %>"><a href="latest.html" data-hover="Latest furniture">Latest furniture</a></li>
+            <li class="<%= "#{controller_name}" == 'furnitures' ? 'active' : '' %>"><a href="<%= furnitures_path %>" data-hover="Мебель">Мебель</a></li>
+            <li ><a href="door.html" data-hover="Door Delivery">Door Delivery</a></li>
+            <li ><a href="contact.html" data-hover="Contact">Contact</a></li>
             <div class="clearfix"> </div>
           </ul>
         </div>
