@@ -1,0 +1,103 @@
+<div class="Portfolio" id="portfolio">
+  <div class="container">
+    <div class="port-section">
+      <h3>Последняя Мебель</h3>
+    </div>
+    <div class="portfolio">
+      <ul id="filters" class="clearfix">
+        <% @categories.each_with_index do |cat, i| %>
+        <% i+=1%>
+            <li class="<%= i==1 ? 'active' : '' %>"><span class="filter" data-filter="<%= cat.downcase %>"><%= cat %></span></li>
+        <% end %>
+      </ul>
+      <div id="portfoliolist">
+        <% @latest.each_with_index do |product, i| %>
+            <% i+=1 %>
+            <div class="portfolio <%= product.furniture_categories.pluck(:name).map(&:downcase).join(' ') %> mix_all" data-cat="<%= product.furniture_categories.pluck(:name).map(&:downcase).join(' ') %>" style="display: inline-block; opacity: 1;">
+              <div class="portfolio-wrapper">
+                <a href="#small-dialog<%= i %>" class="b-link-stripe b-animate-go  thickbox popup-with-zoom-anim">
+                  <img src="<%= product.main_image.home.url %>" /><div class="b-wrapper"><h2 class="b-animate b-from-left b-delay03 "><img src="assets/hover-img.png" alt=""/></h2>
+                  <p class="b-animate b-from-right  b-delay03 "></p></div></a>
+              </div>
+            </div>
+        <% end %>
+
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <!--pop-up-box-->
+    <script type="text/javascript">
+      $(function () {
+
+        var filterList = {
+
+          init: function () {
+
+            // MixItUp plugin
+            // http://mixitup.io
+            $('#portfoliolist').mixitup({
+              targetSelector: '.portfolio',
+              filterSelector: '.filter',
+              effects: ['fade'],
+              easing: 'snap',
+              // call the hover effect
+              onMixEnd: filterList.hoverEffect()
+            });
+
+          },
+
+          hoverEffect: function () {
+
+            // Simple parallax effect
+            $('#portfoliolist .portfolio').hover(
+                function () {
+                  $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                  $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
+                },
+                function () {
+                  $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                  $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
+                }
+            );
+
+          }
+
+        };
+
+        // Run the show!
+        filterList.init();
+
+
+      });
+    </script>
+    <!--//pop-up-box-->
+    <% @latest.each_with_index do |product, i| %>
+        <% i+=1 %>
+        <div id="small-dialog<%= i %>" class="mfp-hide">
+          <div class="image-top">
+            <img src="<%= product.main_image.home.url %>" alt=""/>
+            <h4><%= product.title %></h4>
+            <p><%= product.description %></p>
+          </div>
+        </div>
+    <% end %>
+    <div class="clearfix"> </div>
+    <script>
+      $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+          type: 'inline',
+          fixedContentPos: false,
+          fixedBgPos: true,
+          overflowY: 'auto',
+          closeBtnInside: true,
+          preloader: false,
+          midClick: true,
+          removalDelay: 300,
+          mainClass: 'my-mfp-zoom-in'
+        });
+
+      });
+    </script>
+  </div>
+</div>

@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :furnitures
 
   get '/about', to: 'abouts#about', as: :about
+  get '/latest', to: 'furnitures#latest', as: :latest
 end

@@ -6,6 +6,12 @@ class FurnituresController < ApplicationController
   end
 
   def latest
+    @latest = Furniture.last(6)
+    @categories = []
+    @latest.each do |product|
+      @categories << product.furniture_categories.pluck(:name)
+    end
+    @categories = @categories.flatten.compact.uniq
   end
 
   def show
