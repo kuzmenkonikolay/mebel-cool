@@ -4,38 +4,29 @@ class AppliancesController < ApplicationController
   def index
     @categories = ApplianceCategory.all
     if params[:type] == 'category'
-      @furnitures = ApplianceCategory.find_by(name: params[:name]).furnitures
+      @appliances = ApplianceCategory.find_by(name: params[:name]).appliances
     elsif params[:type] == 'color'
-      @furnitures = Color.find_by(name: params[:name]).furnitures
+      @appliances = ApplianceColor.find_by(name: params[:name]).appliances
     else
-      @furnitures = Appliance.all
+      @appliances = Appliance.all
     end
-    @colors = Color.all
-  end
-
-  def latest
-    @latest = Furniture.last(6)
-    @categories = []
-    @latest.each do |product|
-      @categories << product.furniture_categories.pluck(:name)
-    end
-    @categories = @categories.flatten.compact.uniq
+    @colors = ApplianceColor.all
   end
 
   def show
     @categories = ApplianceCategory.all
-    @colors = Color.all
-    @furniture = Appliance.find_by(id: params[:id])
+    @colors = ApplianceColor.all
+    @appliance = Appliance.find_by(id: params[:id])
   end
 
   def search
     if params[:type] == 'category'
-      @products = ApplianceCategory.find_by(name: params[:name]).furnitures
+      @appliances = ApplianceCategory.find_by(name: params[:name]).appliances
     elsif params[:type] == 'color'
-      @products = Color.find_by(name: params[:name]).furnitures
+      @appliances = ApplianceColor.find_by(name: params[:name]).appliances
     end
     respond_to do |format|
-      format.js {@products}
+      format.js {@appliances}
     end
   end
 end

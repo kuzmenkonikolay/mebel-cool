@@ -1,0 +1,28 @@
+<div class="products-row" id="appliances-list">
+
+  <h3>Список Техники</h3>
+  <% appliances.each do |appliance| %>
+      <a href="<%= appliance_path(appliance.id) %>">
+        <div class="product-grid">
+          <div class="more-product-info">
+            <span> </span>
+          </div>
+          <div class="product-img">
+            <img src="<%= appliance.main_image.for_list.url %>" alt="">
+          </div>
+          <div class="product-info">
+            <div class="product-info-cust">
+              <a href="<%= appliance_path(appliance.id) %>">Детали</a>
+            </div>
+            <div class="product-info-price">
+              <a href="<%= appliance_path(appliance.id) %>"><%= appliance.discount > 0 ? appliance.price*(1-appliance.discount/100) : appliance.price %> P.</a>
+            </div>
+            <div class="clearfix"> </div>
+          </div>
+        </div>
+      </a>
+  <% end %>
+
+  <div class="clearfix"></div>
+</div>
+

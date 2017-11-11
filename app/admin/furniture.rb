@@ -1,6 +1,6 @@
 ActiveAdmin.register Furniture do
   permit_params :title, :price, :discount, :main_image, :description, :widths, :availability,
-                :height, :depth, furniture_pictures_attributes: {}, color_ids: [], furniture_category_ids: [], furniture_picture_ids: []
+                :height, :depth, furniture_pictures_attributes: {}, furniture_color_ids: [], furniture_category_ids: [], furniture_picture_ids: []
 
   index do
     selectable_column
@@ -22,9 +22,9 @@ ActiveAdmin.register Furniture do
   form do |f|
     f.inputs do
       f.input :title
-      f.input :furniture_categories, collection: Category.all, input_html: {class: "select2", style: 'width: 80%;'}
+      f.input :furniture_categories, collection: FurnitureCategory.all, input_html: {class: "select2", style: 'width: 80%;'}
       f.input :availability
-      f.input :colors, collection: Color.all, input_html: {class: "select2", style: 'width: 80%;'}
+      f.input :furniture_colors, collection: FurnitureColor.all, input_html: {class: "select2", style: 'width: 80%;'}
       f.input :widths
       f.input :height
       f.input :depth

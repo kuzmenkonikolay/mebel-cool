@@ -4,8 +4,8 @@
       <div class="content-bar">
         <div class="single-page">
           <ul class="product-head">
-            <li><a href="<%= root_path %>">Home</a> <span>::</span></li>
-            <li><a href="<%= furnitures_path %>">Products</a> <span>::</span></li>
+            <li><a href="<%= root_path %>">Домашняя</a> <span>::</span></li>
+            <li><a href="<%= appliances_path %>">Техника</a> <span>::</span></li>
             <li class="active-page">single</li>
             <div class="clear"> </div>
           </ul>
@@ -32,7 +32,7 @@
           <!--//details-product-slider-->
           <div class="details-left-slider">
             <ul id="etalage">
-              <% @furniture.furniture_pictures.each do |img| %>
+              <% @appliance.appliance_pictures.each do |img| %>
                   <li>
                     <img class="etalage_thumb_image" src="<%= img.file.for_zoom.url %>" />
                     <img class="etalage_source_image" src="<%= img.file.url %>" />
@@ -42,21 +42,21 @@
             </ul>
           </div>
           <div class="details-left-info">
-            <h3><%= @furniture.title %></h3>
-            <p class="availability">Доступность: <span class="color"><%= @furniture.availability %></span></p>
+            <h3><%= @appliance.title %></h3>
+            <p class="availability">Доступность: <span class="color"><%= @appliance.availability %></span></p>
             <div class="price_single">
-              <% if @furniture.discount > 0 %>
-                  <span class="reducedfrom"><%= @furniture.price %> р.</span>
-                  <span class="actual"><%= @furniture.price*(1 - @furniture.discount.to_f/100) %> р.</span>
+              <% if @appliance.discount > 0 %>
+                  <span class="reducedfrom"><%= @appliance.price %> р.</span>
+                  <span class="actual"><%= @appliance.price*(1 - @appliance.discount.to_f/100) %> р.</span>
               <% else %>
-                  <span class="actual"><%= @furniture.price %></span>
+                  <span class="actual"><%= @appliance.price %></span>
               <% end %>
             </div>
             <h2 class="quick">Описание:</h2>
-            <p class="quick_desc"> <%= @furniture.description %></p>
+            <p class="quick_desc"> <%= @appliance.description %></p>
             <ul class="product-colors">
               <h3>Доступные цвета:</h3>
-              <% @furniture.furniture_colors.each do |color| %>
+              <% @appliance.appliance_colors.each do |color| %>
                   <li style="background-color: <%= color.rgb %>;"><a href="#"><span> </span></a></li>
               <% end %>
               <div class="clear"> </div>
@@ -198,13 +198,13 @@
       <h3>Категории</h3>
       <ul class="product-categories color">
         <% @categories.each do |category| %>
-            <li class="cat-item cat-item-42"><a href="<%= furnitures_path(type: 'category', name: category.name)%>"><%= category.name %></a> <span class="count">(<%= category.furnitures.count %>)</span></li>
+            <li class="cat-item cat-item-42"><a href="<%= appliances_path(type: 'category', name: category.name)%>"><%= category.name %></a> <span class="count">(<%= category.appliances.count %>)</span></li>
         <% end %>
       </ul>
       <h3>Цвета</h3>
       <ul class="product-categories color">
         <% @colors.each do |color| %>
-            <li class="cat-item cat-item-42"><a href="<%= furnitures_path(type: 'color', name: color.name)%>"><%= color.name %></a> <span class="count">(<%= color.furnitures.count %>)</span></li>
+            <li class="cat-item cat-item-42"><a href="<%= appliances_path(type: 'color', name: color.name)%>"><%= color.name %></a> <span class="count">(<%= color.appliances.count %>)</span></li>
         <% end %>
       </ul>
     </div>

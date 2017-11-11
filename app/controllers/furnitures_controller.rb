@@ -2,15 +2,15 @@ class FurnituresController < ApplicationController
   protect_from_forgery except: :search
 
   def index
-    @categories = Category.all
+    @categories = FurnitureCategory.all
     if params[:type] == 'category'
-      @furnitures = Category.find_by(name: params[:name]).furnitures
+      @furnitures = FurnitureCategory.find_by(name: params[:name]).furnitures
     elsif params[:type] == 'color'
-      @furnitures = Color.find_by(name: params[:name]).furnitures
+      @furnitures = FurnitureColor.find_by(name: params[:name]).furnitures
     else
       @furnitures = Furniture.all
     end
-    @colors = Color.all
+    @colors = FurnitureColor.all
   end
 
   def latest
@@ -23,16 +23,16 @@ class FurnituresController < ApplicationController
   end
 
   def show
-    @categories = Category.all
-    @colors = Color.all
+    @categories = FurnitureCategory.all
+    @colors = FurnitureColor.all
     @furniture = Furniture.find_by(id: params[:id])
   end
 
   def search
     if params[:type] == 'category'
-      @products = Category.find_by(name: params[:name]).furnitures
+      @products = FurnitureCategory.find_by(name: params[:name]).furnitures
     elsif params[:type] == 'color'
-      @products = Color.find_by(name: params[:name]).furnitures
+      @products = FurnitureColor.find_by(name: params[:name]).furnitures
     end
     respond_to do |format|
         format.js {@products}

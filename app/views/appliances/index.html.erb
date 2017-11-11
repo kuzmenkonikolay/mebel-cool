@@ -1,0 +1,32 @@
+<div class="product">
+  <div class="container">
+    <div class="col-md-3 sidebar_men">
+      <h3>Категории</h3>
+      <ul class="product-categories color">
+        <% @categories.each do |category| %>
+            <li class="cat-item cat-item-42"><a data-remote="true" href="<%= search_app_path(type: 'category', name: category.name)%>"><%= category.name %></a> <span class="count">(<%= category.appliances.count %>)</span></li>
+        <% end %>
+      </ul>
+      <h3>Цвета</h3>
+      <ul class="product-categories color">
+        <% @colors.each do |color| %>
+            <li class="cat-item cat-item-42"><a data-remote="true" href="<%= search_app_path(type: 'color', name: color.name)%>"><%= color.name %></a> <span class="count">(<%= color.appliances.count %>)</span></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-9 ctnt-bar">
+      <div class="content-bar">
+        <ul class="product-head">
+          <li><a href="<%= root_path %>">Домашняя</a> <span>::</span></li>
+          <li class="active-page">Мебель</li>
+          <div class="clear"> </div>
+        </ul>
+        <%= render partial: 'appliances/list', locals: {appliances: @appliances} %>
+        <div class="show-more">
+          <a href="#">Show more</a>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>

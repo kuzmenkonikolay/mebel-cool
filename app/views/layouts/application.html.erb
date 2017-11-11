@@ -49,7 +49,7 @@
             <li class="<%= "#{controller_name}" == 'abouts' ? 'active' : '' %>"><a href="<%= about_path %>" data-hover="О Нас">О Нас</a></li>
             <li class="<%= "#{controller_name}_#{action_name}" == 'furnitures_latest' ? 'active' : '' %>"><a href="<%= latest_path %>" data-hover="Последняя Мебель">Последняя Мебель</a></li>
             <li class="<%= "#{controller_name}_#{action_name}" == 'furnitures_index' || "#{controller_name}_#{action_name}" == 'furnitures_show' ? 'active' : '' %>"><a href="<%= furnitures_path %>" data-hover="Мебель">Мебель</a></li>
-            <li ><a href="door.html" data-hover="Door Delivery">Door Delivery</a></li>
+            <li class="<%= "#{controller_name}_#{action_name}" == 'appliances_index' || "#{controller_name}_#{action_name}" == 'appliances_show' ? 'active' : '' %>"><a href="<%= appliances_path %>" data-hover="Техника">Техника</a></li>
             <li ><a href="contact.html" data-hover="Contact">Contact</a></li>
             <div class="clearfix"> </div>
           </ul>
