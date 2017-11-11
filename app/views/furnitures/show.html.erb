@@ -47,7 +47,7 @@
             <div class="price_single">
               <% if @furniture.discount > 0 %>
                   <span class="reducedfrom"><%= @furniture.price %> р.</span>
-                  <span class="actual"><%= @furniture.price*(1 - @furniture.discount.to_f/100) %> р.</span>
+                  <span class="actual"><%= (@furniture.price*(1 - @furniture.discount.to_f/100)).round(2) %> р.</span>
               <% else %>
                   <span class="actual"><%= @furniture.price %></span>
               <% end %>

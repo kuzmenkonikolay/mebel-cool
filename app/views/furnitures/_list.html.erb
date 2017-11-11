@@ -16,7 +16,7 @@
               <a href="<%= furniture_path(product.id) %>">Details</a>
             </div>
             <div class="product-info-price">
-              <a href="<%= furniture_path(product.id) %>"><%= product.discount > 0 ? product.price*(1-product.discount/100) : product.price %> P.</a>
+              <a href="<%= furniture_path(product.id) %>"><%= product.discount > 0 ? (product.price*(1-product.discount.to_f/100)).round(2) : product.price %> P.</a>
             </div>
             <div class="clearfix"> </div>
           </div>

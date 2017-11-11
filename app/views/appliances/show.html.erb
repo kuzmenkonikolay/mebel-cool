@@ -47,7 +47,7 @@
             <div class="price_single">
               <% if @appliance.discount > 0 %>
                   <span class="reducedfrom"><%= @appliance.price %> р.</span>
-                  <span class="actual"><%= @appliance.price*(1 - @appliance.discount.to_f/100) %> р.</span>
+                  <span class="actual"><%= (@appliance.price*(1 - @appliance.discount.to_f/100)).round(2) %> р.</span>
               <% else %>
                   <span class="actual"><%= @appliance.price %></span>
               <% end %>
