@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   get '/about', to: 'abouts#about', as: :about
   get '/latest', to: 'furnitures#latest', as: :latest
+  get '/search', to: 'furnitures#search', as: :search
 end

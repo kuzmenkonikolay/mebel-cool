@@ -1,4 +1,6 @@
 class FurnituresController < ApplicationController
+  protect_from_forgery except: :search
+
   def index
     @categories = FurnitureCategory.all
     @furnitures = Furniture.all
@@ -18,5 +20,16 @@ class FurnituresController < ApplicationController
     @categories = FurnitureCategory.all
     @colors = Color.all
     @furniture = Furniture.find_by(id: params[:id])
+  end
+
+  def search
+    if params[:type] == 'category'
+      @products = FurnitureCategory.find_by(name: params[:name]).furnitures
+    elsif params[:type] == 'color'
+      @products = Color.find_by(name: params[:name]).furnitures
+    end
+    respond_to do |format|
+        format.js {@products}
+    end
   end
 end
