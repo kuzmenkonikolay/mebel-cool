@@ -22,4 +22,7 @@
 //= require style/responsiveslides.min.js
 //= require style/nivo-lightbox.min.js
 //= require style/owl.carousel.js
+//= require jquery.validate
+//= require inputmask
+//= require jquery.inputmask
 //= require_dir style

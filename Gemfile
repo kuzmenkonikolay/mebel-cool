@@ -26,6 +26,9 @@ gem "fog-aws"
 gem "mini_magick"
 gem 'figaro'
 
+gem 'jquery-validation-rails'
+gem 'jquery-inputmask-rails', github: 'knapo/jquery-inputmask-rails'
+
 gem 'jquery-rails'
 gem 'activeadmin_addons'
 gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'

@@ -1,0 +1,63 @@
+<div  class="contact" id="contact">
+  <div class="container">
+    <div class="col-md-6 contact-left">
+      <h3>01<span> / </span> Get in Touch </h3>
+      <p class="style">Proin iaculis purus Consequent sem cure digni ssim.Donec pottitora entum suscipit aenem rhoncus.Proin iaculis purus Consequent sem cure digni ssim.Donec pottitora entum suscipit aenem rhoncus.</p>
+      <ul class="soc_icons">
+        <li><a href="#"><i class="icon_1"></i><span>Google+ </span> </a></li>
+        <li><a href="#"><i class="icon_2"></i><span>Twitter </span> </a></li>
+        <li><a href="#"><i class="icon_3"></i><span>Facebook</span> </a></li>
+        <li><a href="#"><i class="icon_4"></i><span>Youtube</span> </a></li>
+      </ul>
+      <div class="clear"> </div>
+    </div>
+    <div class="col-md-6 contact-right">
+      <h3>02<span> / </span>Sends us a Message</h3>
+      <div class="form">
+        <%= form_for @contact_mail, url: contacts_path, validate: true do |f| %>
+            <%= f.text_field :name, class: 'textbox', placeholder: 'Имя' %>
+            <%= f.text_field :email, class: 'textbox', placeholder: 'Email' %>
+            <%= f.text_field :phone, class: 'textbox', placeholder: 'Номер телефона' %>
+            <div class="clearfix"> </div>
+            <div>
+              <%= f.text_area :message, placeholder: 'Сообщение:' %>
+            </div>
+            <div class="submit">
+              <%= f.submit 'Отправить' %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="clear"> </div>
+  </div>
+</div>
+
+<script>
+  $( document ).ready(function() {
+    jQuery.extend(jQuery.validator.messages, {
+      required: "Это поле обязательно",
+      email: "Пожалуйста, введи корректный email адрес."
+    });
+
+    var selector = document.getElementById("contact_mail_phone");
+    var im = new Inputmask("(999) 999-9999");
+    im.mask(selector);
+
+    $("#new_contact_mail").validate({
+      errorClass: "text-danger",
+      errorElement: "div",
+      rules: {
+        'contact_mail[name]': {
+          required: true
+        },
+        'contact_mail[email]': {
+          required: true,
+          email: true
+        },
+        'contact_mail[message]': {
+          required: true
+        }
+      }
+    });
+  });
+</script>

@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   get '/latest', to: 'furnitures#latest', as: :latest
   get '/search', to: 'furnitures#search', as: :search
   get '/search_app', to: 'appliances#search', as: :search_app
+
+  get '/contact_us', to: 'contacts#contact_us', as: :contact_us
+  resources :contacts, only: [:create]
 end
