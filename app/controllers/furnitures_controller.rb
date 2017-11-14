@@ -4,13 +4,32 @@ class FurnituresController < ApplicationController
   def index
     @categories = FurnitureCategory.all
     if params[:type] == 'category'
+      @furnitures = FurnitureCategory.find_by(name: params[:name]).furnitures.last(30)
+    elsif params[:type] == 'color'
+      @furnitures = FurnitureColor.find_by(name: params[:name]).furnitures.last(30)
+    else
+      @furnitures = Furniture.all.last(30)
+    end
+    @colors = FurnitureColor.all
+  end
+
+  def show_more
+    p '---------------------'
+    p params
+    p '---------------------'
+    @categories = FurnitureCategory.all
+    @colors = FurnitureColor.all
+    if params[:type] == 'category'
       @furnitures = FurnitureCategory.find_by(name: params[:name]).furnitures
     elsif params[:type] == 'color'
       @furnitures = FurnitureColor.find_by(name: params[:name]).furnitures
     else
       @furnitures = Furniture.all
     end
-    @colors = FurnitureColor.all
+
+    response do |format|
+      format.js
+    end
   end
 
   def latest
@@ -31,10 +50,11 @@ class FurnituresController < ApplicationController
   end
 
   def search
+    @query = "?type=#{params[:type]}&name=#{params[:name]}"
     if params[:type] == 'category'
-      @products = FurnitureCategory.find_by(name: params[:name]).furnitures
+      @products = FurnitureCategory.find_by(name: params[:name]).furnitures.last(30)
     elsif params[:type] == 'color'
-      @products = FurnitureColor.find_by(name: params[:name]).furnitures
+      @products = FurnitureColor.find_by(name: params[:name]).furnitures.last(30)
     end
     respond_to do |format|
         format.js {@products}

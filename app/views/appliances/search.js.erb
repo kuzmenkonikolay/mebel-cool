@@ -1,1 +1,3 @@
+$('#query_params_input').val('<%= @query %>');
+$('#show_more_button').show();
 $('#appliances-list').html('<%= escape_javascript(render partial: 'appliances/list', locals: {appliances: @appliances}) %>');

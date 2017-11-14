@@ -2,6 +2,7 @@
   <div class="container">
     <div class="col-md-3 sidebar_men">
       <h3>Категории</h3>
+      <%= hidden_field_tag :query_params, '', id: 'query_params_input' %>
       <ul class="product-categories color">
         <% @categories.each do |category| %>
             <li class="cat-item cat-item-42"><a data-remote="true" href="<%= search_app_path(type: 'category', name: category.name)%>"><%= category.name %></a> <span class="count">(<%= category.appliances.count %>)</span></li>
@@ -23,7 +24,7 @@
         </ul>
         <%= render partial: 'appliances/list', locals: {appliances: @appliances} %>
         <div class="show-more">
-          <a href="#">Показать Больше</a>
+          <a id="show_more_button" data-remote="true" href="<%= show_more_appliances_path %>" onclick="$('#show_more_button').attr('href', $('#show_more_button').attr('href') + $('#query_params_input').val());">Показать Больше</a>
         </div>
       </div>
     </div>

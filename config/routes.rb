@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   get '/remove_furniture_from_cart', to: 'carts#remove_furniture_from_cart', as: :remove_furniture_from_cart
   get '/remove_appliance_from_cart', to: 'carts#remove_appliance_from_cart', as: :remove_appliance_from_cart
   resources :carts, only: :index
+
+  get '/show_more_appliances', to: 'appliances#show_more', as: :show_more_appliances
+  get '/show_more_furniture', to: 'furnitures#show_more', as: :show_more_furnitures
 end

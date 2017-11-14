@@ -4,6 +4,21 @@ class AppliancesController < ApplicationController
   def index
     @categories = ApplianceCategory.all
     if params[:type] == 'category'
+      @appliances = ApplianceCategory.find_by(name: params[:name]).appliances.last(30)
+    elsif params[:type] == 'color'
+      @appliances = ApplianceColor.find_by(name: params[:name]).appliances.last(30)
+    else
+      @appliances = Appliance.last(30)
+    end
+    @colors = ApplianceColor.all
+  end
+
+  def show_more
+    p '--------------'
+    p params
+    p '--------------'
+    @categories = ApplianceCategory.all
+    if params[:type] == 'category'
       @appliances = ApplianceCategory.find_by(name: params[:name]).appliances
     elsif params[:type] == 'color'
       @appliances = ApplianceColor.find_by(name: params[:name]).appliances
@@ -22,10 +37,11 @@ class AppliancesController < ApplicationController
   end
 
   def search
+    @query = "?type=#{params[:type]}&name=#{params[:name]}"
     if params[:type] == 'category'
-      @appliances = ApplianceCategory.find_by(name: params[:name]).appliances
+      @appliances = ApplianceCategory.find_by(name: params[:name]).appliances.last(30)
     elsif params[:type] == 'color'
-      @appliances = ApplianceColor.find_by(name: params[:name]).appliances
+      @appliances = ApplianceColor.find_by(name: params[:name]).appliances.last(30)
     end
     respond_to do |format|
       format.js {@appliances}
