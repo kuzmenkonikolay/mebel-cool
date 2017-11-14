@@ -223,15 +223,15 @@
 	opacity: 1; 
 }
 .nivo-lightbox-theme-default .nivo-lightbox-prev { 
-	background-image: url(../../assets/prev.png);
+	background-image: url(https://s3.amazonaws.com/mebel-cool/assets/prev.png);
 }
 .nivo-lightbox-theme-default .nivo-lightbox-next { 
-	background-image: url(../../assets/next.png);
+	background-image: url(https://s3.amazonaws.com/mebel-cool/assets/next.png);
 }
 
 .nivo-lightbox-theme-default .nivo-lightbox-close {
 	display: block;
-	background: url(../../assets/close.png) no-repeat 0px -1px;
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/close.png) no-repeat 0px -1px;
 	width: 16px;
 	height: 16px;
 	text-indent: -9999px;

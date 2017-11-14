@@ -122,7 +122,7 @@ color:#f7ec13;
 	width:35px;
 	height:35px;
 	display: inline-block;
-	background: url('../../assets/icons.png') no-repeat;
+	background: url('https://s3.amazonaws.com/mebel-cool/assets/icons.png') no-repeat;
 	vertical-align: middle;
 	-webkit-transition: all 0.3s ease;
 			-moz-transition: all 0.3s ease;
@@ -161,7 +161,7 @@ color:#f7ec13;
 	margin-left: 0;
 }
 .gallery-box:hover span.rollover1 {
-	background: url(../../assets/hover-img.png) center no-repeat rgba(247, 236, 19, 0.54);
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/hover-img.png) center no-repeat rgba(247, 236, 19, 0.54);
 cursor: pointer;
 height: 326px;
 width: 565px;
@@ -338,7 +338,7 @@ div#service {
 i.icon1{
 	width: 102px;
 	height: 113px;
-	background: url(../../assets/icons.png)no-repeat -1px -5px;
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/icons.png)no-repeat -1px -5px;
 	display: inline-block;
 	cursor: pointer;
 	-webkit-transition: all 0.3s ease-out;
@@ -348,12 +348,12 @@ i.icon1{
 	transition: all 0.3s ease-out;
 }
 i.icon1:hover{
-	background: url(../../assets/icons.png)no-repeat -1px -5px;
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/icons.png)no-repeat -1px -5px;
 }
 i.icon2{
 	width: 102px;
 	height: 113px;
-	background: url(../../assets/icons.png)no-repeat -1px -122px;
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/icons.png)no-repeat -1px -122px;
 	display: inline-block;
 	cursor: pointer;
 	-webkit-transition: all 0.3s ease-out;
@@ -363,12 +363,12 @@ i.icon2{
 	transition: all 0.3s ease-out;
 }
 i.icon2:hover{
-	background: url(../../assets/icons.png)no-repeat -1px -122px;
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/icons.png)no-repeat -1px -122px;
 }
 i.icon3{
 	width: 102px;
 	height: 113px;
-	background: url(../../assets/icons.png)no-repeat -1px -235px;
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/icons.png)no-repeat -1px -235px;
 	display: inline-block;
 	cursor: pointer;
 	-webkit-transition: all 0.3s ease-out;
@@ -378,12 +378,12 @@ i.icon3{
 	transition: all 0.3s ease-out;
 }
 i.icon3:hover{
-	background: url(../../assets/icons.png)no-repeat -1px -235px;
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/icons.png)no-repeat -1px -235px;
 }
 i.icon4{
 	width: 102px;
 	height: 113px;
-	background: url(../../assets/icons.png)no-repeat 0px -353px;
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/icons.png)no-repeat 0px -353px;
 	display: inline-block;
 	cursor: pointer;
 	-webkit-transition: all 0.3s ease-out;
@@ -393,7 +393,7 @@ i.icon4{
 	transition: all 0.3s ease-out;
 }
 i.icon4:hover{
-	background: url(../../assets/icons.png)no-repeat 0px -353px;
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/icons.png)no-repeat 0px -353px;
 }
 a.read-more {
 text-decoration: none;
@@ -425,7 +425,7 @@ width: 58.3%;
 	span.menu {
 	width: 35px;
 height: 35px;
-background: url(../../assets/menu-icon.png) no-repeat 0px 0px;
+background: url(https://s3.amazonaws.com/mebel-cool/assets/menu-icon.png) no-repeat 0px 0px;
 display: block;
 position: absolute;
 right: 205px;
@@ -498,7 +498,7 @@ display: block;
 		padding: 2em 3em 9.16em 2em;
 }
 .news-left-grid-info:before{
-	content: url(../../../../../../Downloads/home_interio-web/web/images/b-arrow.png) no-repeat 0px 0px;
+	content: url(https://s3.amazonaws.com/mebel-cool/assets/b-arrow.png) no-repeat 0px 0px;
 position: absolute;
 left: 46%;
 bottom: -32px;
@@ -546,7 +546,7 @@ padding:6.415em 2em;
 	content:none;
 }
 .news-left-grid-info-left:after{
-	content: url(../../../../../../Downloads/home_interio-web/web/images/top-arrow.png) no-repeat 0px 0px;
+	content: url(https://s3.amazonaws.com/mebel-cool/assets/top-arrow.png) no-repeat 0px 0px;
 	position: absolute;
 	right: 126px;
 	top: -27px;
@@ -590,7 +590,7 @@ position: absolute;
 	float:right;
 }
 .news-right-grid-bottom:before{
-	content: url(../../../../../../Downloads/home_interio-web/web/images/top-arrow.png) no-repeat 0px 0px;
+	content: url(https://s3.amazonaws.com/mebel-cool/assets/top-arrow.png) no-repeat 0px 0px;
 	position: absolute;
 	left:170px;
 	top: -23px;
@@ -1041,7 +1041,7 @@ font-weight: 500;
 }
 .checkbox input + i:after {
 	content: '';
-	background: url("../../../../../../Downloads/home_interio-web/web/images/tic1.png") no-repeat 1px 2px;
+	background: url("https://s3.amazonaws.com/mebel-cool/assets/tic1.png") no-repeat 1px 2px;
 	top: -1px;
 	left: -1px;
 	width: 15px;
@@ -1647,7 +1647,7 @@ background: #66CE5B;
 	width:35px;
 	height:35px;
 	display: inline-block;
-	background: url('../../assets/icons.png') no-repeat;
+	background: url('https://s3.amazonaws.com/mebel-cool/assets/icons.png') no-repeat;
 	vertical-align: middle;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -1966,7 +1966,7 @@ ul.social li{
 ul.social li i{
 	width:38px;
 	height:36px;
-	background:url(../images/social-icons.png)no-repeat;
+	background:url(https://s3.amazonaws.com/mebel-cool/assets/social-icons.png)no-repeat;
 	display: inline-block;
 	cursor: pointer;
 	opacity: 0.5;
@@ -2105,7 +2105,7 @@ ul.color{
 	width: 35px;
 	height: 46px;
 	display: block;
-	background: url(../../assets/add.png) no-repeat;
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/add.png) no-repeat;
 	position: absolute;
 	top: 0px;
 	right: 0;
@@ -2433,7 +2433,7 @@ padding-top: 1em;
 	width:37px;
 	height:47px;
 	display: inline-block;
-	background: url('../../assets/icons.png') no-repeat;
+	background: url('https://s3.amazonaws.com/mebel-cool/assets/icons.png') no-repeat;
 	vertical-align: middle;
 	-webkit-transition: all 0.3s ease;
 			-moz-transition: all 0.3s ease;
@@ -2514,7 +2514,7 @@ color: #888;
 	height:25px;
 	border: none;
 	text-indent: 100%;
-	background: url("../../assets/move-up.png") no-repeat 0px 0px;
+	background: url("https://s3.amazonaws.com/mebel-cool/assets/move-up.png") no-repeat 0px 0px;
 }
 #toTopHover {
 	width:38px;
@@ -2658,7 +2658,7 @@ color: #888;
 	font-size: 0.9em;
 	}
 	.gallery-box:hover span.rollover1 {
-	background: url(../../assets/hover-img.png) center no-repeat rgba(247, 236, 19, 0.54);
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/hover-img.png) center no-repeat rgba(247, 236, 19, 0.54);
 	cursor: pointer;
 	height: 269px;
 	width: 466px;
@@ -2788,7 +2788,7 @@ color: #888;
 	float: left;
 	}
 	.gallery-box:hover span.rollover1 {
-	background: url(../../assets/hover-img.png) center no-repeat rgba(247, 236, 19, 0.54);
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/hover-img.png) center no-repeat rgba(247, 236, 19, 0.54);
 	cursor: pointer;
 	height: 214px;
 	width: 372px;
@@ -2951,7 +2951,7 @@ color: #888;
 }
 @media(max-width:640px){
 	.gallery-box:hover span.rollover1 {
-	background: url(../../assets/hover-img.png) center no-repeat rgba(247, 236, 19, 0.54);
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/hover-img.png) center no-repeat rgba(247, 236, 19, 0.54);
 	cursor: pointer;
 	height: 178px;
 	width:306px;
@@ -3073,7 +3073,7 @@ color: #888;
 }
 @media(max-width:480px){
 	.gallery-box:hover span.rollover1 {
-	background: url(../../../../../../Downloads/home_interio-web/web/images/hover-img2.png) center no-repeat rgba(247, 236, 19, 0.54);
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/hover-img2.png) center no-repeat rgba(247, 236, 19, 0.54);
 	cursor: pointer;
 	height: 129px;
 	width: 224px;
@@ -3084,7 +3084,7 @@ color: #888;
 	span.menu {
 	width: 35px;
 	height: 35px;
-	background: url(../../../../../../Downloads/home_interio-web/web/images/menu-icon.png) no-repeat 0px 0px;
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/menu-icon.png) no-repeat 0px 0px;
 	display: block;
 	position: absolute;
 	right: 135px;
@@ -3249,7 +3249,7 @@ color: #888;
 	font-size: 1em;
 	}
 	.gallery-box:hover span.rollover1 {
-	background: url(../../../../../../Downloads/home_interio-web/web/images/hover-img2.png) center no-repeat rgba(247, 236, 19, 0.54);
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/hover-img2.png) center no-repeat rgba(247, 236, 19, 0.54);
 	cursor: pointer;
 	height:70px;
 	width:120px;

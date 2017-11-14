@@ -179,7 +179,7 @@ float: left;
   display: inline-block;
   width:11px;
   height: 32px;
-  background-image: url(../../assets/sprites.png);
+  background-image: url(https://s3.amazonaws.com/mebel-cool/assets/sprites.png);
   background-repeat: no-repeat;
   cursor: pointer;
   z-index: 22;
@@ -352,7 +352,7 @@ float: left;
   height: 1px;
   }
   .news-right-grid-bottom:before {
-  content: url(../../assets/top-arrow.png) no-repeat 0px 0px;
+  content: url(https://s3.amazonaws.com/mebel-cool/assets/top-arrow.png) no-repeat 0px 0px;
   display: none;
   }
   .top-btn.three {
