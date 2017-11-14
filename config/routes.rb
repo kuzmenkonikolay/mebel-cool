@@ -22,4 +22,6 @@ Rails.application.routes.draw do
 
   get '/show_more_appliances', to: 'appliances#show_more', as: :show_more_appliances
   get '/show_more_furniture', to: 'furnitures#show_more', as: :show_more_furnitures
+
+  match "*missing" => redirect("/"), via: [:get, :post, :put, :patch, :delete]
 end
