@@ -8,4 +8,12 @@ module ApplicationHelper
     end
     finished_price.round(2)
   end
+
+  def product_price price, discount
+    if discount > 0
+      (price*(1-discount.to_f/100)).round(2)
+    else
+      price.round(2)
+    end
+  end
 end

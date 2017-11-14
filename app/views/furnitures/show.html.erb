@@ -65,7 +65,7 @@
               <div class="clear"> </div>
             </ul>
             <ul class="size">
-              <h3>Length</h3>
+              <h3>Габариты</h3>
               <li><a href="#">Высота: <% @furniture.height %></a></li>
               <li><a href="#">Ширина: <% @furniture.widths %></a></li>
               <li><a href="#">Глубина: <% @furniture.depth %></a></li>
@@ -99,109 +99,32 @@
           <div class="clearfix"></div>
         </div>
         <div class="products-row contact-prod">
-          <h3>Latest Productss</h3>
-          <a href="single.html"><div class="product-grid">
-            <div class="more-product-info">
-              <span> </span>
-            </div>
-            <div class="product-img">
-              <img src="../assets/f11.jpg" alt="">
-            </div>
-            <div class="product-info">
-              <div class="product-info-cust">
-                <a href="single.html">Details</a>
-              </div>
-              <div class="product-info-price">
-                <a href="single.html">&#8356;380</a>
-              </div>
-              <div class="clearfix"> </div>
-            </div>
-          </div></a>
-          <a href="single.html"><div class="product-grid">
-            <div class="more-product-info">
-              <span> </span>
-            </div>
-            <div class="product-img">
-              <img src="../assets/f2.jpg" alt="">
-            </div>
-            <div class="product-info">
-              <div class="product-info-cust">
-                <a href="single.html">Details</a>
-              </div>
-              <div class="product-info-price">
-                <a href="single.html">&#8356;380</a>
-              </div>
-              <div class="clearfix"> </div>
-            </div>
-          </div></a>
-          <a href="single.html"><div class="product-grid product-gridy">
-            <div class="more-product-info">
-              <span> </span>
-            </div>
-            <div class="product-img">
-              <img src="../assets/f3.jpg" alt="">
-            </div>
-            <div class="product-info">
-              <div class="product-info-cust">
-                <a href="single.html">Details</a>
-              </div>
-              <div class="product-info-price">
-                <a href="single.html">&#8356;380</a>
-              </div>
-              <div class="clearfix"> </div>
-            </div>
-          </div></a>
-          <a href="single.html"><div class="product-grid">
-            <div class="more-product-info">
-              <span> </span>
-            </div>
-            <div class="product-img">
-              <img src="../assets/f4.jpg" alt="">
-            </div>
-            <div class="product-info">
-              <div class="product-info-cust">
-                <a href="single.html">Details</a>
-              </div>
-              <div class="product-info-price">
-                <a href="single.html">&#8356;380</a>
-              </div>
-              <div class="clearfix"> </div>
-            </div>
-          </div></a>
-          <a href="single.html"><div class="product-grid">
-            <div class="more-product-info">
-              <span> </span>
-            </div>
-            <div class="product-img">
-              <img src="../assets/f5.jpg" alt="">
-            </div>
-            <div class="product-info">
-              <div class="product-info-cust">
-                <a href="single.html">Details</a>
-              </div>
-              <div class="product-info-price">
-                <a href="single.html">&#8356;380</a>
-              </div>
-              <div class="clearfix"> </div>
-            </div>
-          </div></a>
-          <a href="single.html"><div class="product-grid product-gridy">
-            <div class="more-product-info">
-              <span> </span>
-            </div>
-            <div class="product-img">
-              <img src="../assets/f6.jpg" alt="">
-            </div>
-            <div class="product-info">
-              <div class="product-info-cust">
-                <a href="single.html">Details</a>
-              </div>
-              <div class="product-info-price">
-                <a href="single.html">&#8356;380</a>
-              </div>
-              <div class="clearfix"> </div>
-            </div>
-          </div></a>
+          <h3>Последние посещения</h3>
+          <% if session[:viewed_furnitures].present? %>
+            <% session[:viewed_furnitures].uniq.last(6).each do |id| %>
+                  <% furniture = Furniture.find_by(id: id)%>
+                  <a href="<%= furniture_path(furniture.id)%>">
+                    <div class="product-grid">
+                      <div class="more-product-info">
+                        <span> </span>
+                      </div>
+                      <div class="product-img">
+                        <img src="<%= furniture.main_image.thumb.url %>" alt="">
+                      </div>
+                      <div class="product-info">
+                        <div class="product-info-cust">
+                          <a href="<%= furniture_path(furniture.id)%>"><%= furniture.title %></a>
+                        </div>
+                        <div class="product-info-price">
+                          <a href="<%= furniture_path(furniture.id)%>"><%= product_price(furniture.price, furniture.discount) %></a>
+                        </div>
+                        <div class="clearfix"> </div>
+                      </div>
+                    </div>
+                  </a>
+            <% end %>
+          <% end %>
+
           <div class="clearfix"></div>
         </div>
       </div>

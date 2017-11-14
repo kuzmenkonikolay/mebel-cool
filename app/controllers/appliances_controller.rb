@@ -17,6 +17,8 @@ class AppliancesController < ApplicationController
     @categories = ApplianceCategory.all
     @colors = ApplianceColor.all
     @appliance = Appliance.find_by(id: params[:id])
+    session[:viewed_appliances] = [] if session[:viewed_appliances].blank?
+    session[:viewed_appliances] << @appliance.id
   end
 
   def search

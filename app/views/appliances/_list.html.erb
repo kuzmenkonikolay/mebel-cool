@@ -12,7 +12,7 @@
           </div>
           <div class="product-info">
             <div class="product-info-cust">
-              <a href="<%= appliance_path(appliance.id) %>">Детали</a>
+              <a href="<%= appliance_path(appliance.id) %>"><%= appliance.title %></a>
             </div>
             <div class="product-info-price">
               <a href="<%= appliance_path(appliance.id) %>"><%= appliance.discount > 0 ? (appliance.price*(1-appliance.discount.to_f/100)).round(2) : appliance.price %> P.</a>

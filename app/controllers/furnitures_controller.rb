@@ -26,6 +26,8 @@ class FurnituresController < ApplicationController
     @categories = FurnitureCategory.all
     @colors = FurnitureColor.all
     @furniture = Furniture.find_by(id: params[:id])
+    session[:viewed_furnitures] = [] if session[:viewed_furnitures].blank?
+    session[:viewed_furnitures] << @furniture.id
   end
 
   def search

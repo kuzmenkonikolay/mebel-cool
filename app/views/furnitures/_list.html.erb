@@ -13,7 +13,7 @@
           </div>
           <div class="product-info">
             <div class="product-info-cust">
-              <a href="<%= furniture_path(product.id) %>">Details</a>
+              <a href="<%= furniture_path(product.id) %>"><%= product.title %></a>
             </div>
             <div class="product-info-price">
               <a href="<%= furniture_path(product.id) %>"><%= product.discount > 0 ? (product.price*(1-product.discount.to_f/100)).round(2) : product.price %> P.</a>
