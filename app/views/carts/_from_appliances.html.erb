@@ -1,0 +1,33 @@
+<% if appliances.present? %>
+  <h3 class="box-title">Техника</h3>
+  <div class="table-responsive">
+    <table class="table full_image_popup">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Название</th>
+        <th>Доступность</th>
+        <th>Цвет</th>
+        <th>Количество</th>
+        <th>Картинка</th>
+        <th>Цена</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% appliances.each_with_index do |product, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= product[:appliance].title %></td>
+            <td><%= product[:appliance].availability %></td>
+            <td><%= product[:color].name %></td>
+            <td><%= product[:quantity] %></td>
+            <td><img alt="product-img" width="85" height="85" class="" src="<%= product[:appliance].main_image.thumb.url %>"></td>
+            <td><%= price_for_cart(product[:appliance].price, product[:appliance].discount, product[:quantity]) %></td>
+            <td><div class="donate-top"><a data-remote="true" href="<%= remove_appliance_from_cart_path(product_id: product[:appliance].id) %>"><input style="background-color: orange;border-color: darkorange;font-size: 13px;width: 75%;" type="submit" value="Удалить из карзины"></a></div></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

@@ -20,11 +20,35 @@ class CartsController < ApplicationController
     @furnitures = []
     @appliances = []
     session[:furniture].keys.each do |key|
-      @furnitures << { furniture: Furniture.find_by(id: key), color: session[:furniture][key][:color], quantity: session[:furniture][key][:quantity] }
+      @furnitures << { furniture: Furniture.find_by(id: key), color: FurnitureColor.find_by(id: session[:furniture][key]['color']), quantity: session[:furniture][key]['quantity'] }
     end
 
     session[:appliance].keys.each do |key|
-      @appliances << { appliance: Furniture.find_by(id: key), color: session[:appliance][key][:color], quantity: session[:appliance][key][:quantity] }
+      @appliances << { appliance: Appliance.find_by(id: key), color: ApplianceColor.find_by(id: session[:appliance][key]['color']), quantity: session[:appliance][key]['quantity'] }
+    end
+  end
+
+  def remove_furniture_from_cart
+    @furnitures = []
+    session[:furniture].except!(params[:product_id])
+    session[:furniture].keys.each do |key|
+      @furnitures << { furniture: Furniture.find_by(id: key), color: FurnitureColor.find_by(id: session[:furniture][key]['color']), quantity: session[:furniture][key]['quantity'] }
+    end
+
+    response do |format|
+      format.js
+    end
+  end
+
+  def remove_appliance_from_cart
+    @appliances = []
+    session[:appliance].except!(params[:product_id])
+    session[:appliance].keys.each do |key|
+      @appliances << { appliance: Appliance.find_by(id: key), color: ApplianceColor.find_by(id: session[:appliance][key]['color']), quantity: session[:appliance][key]['quantity'] }
+    end
+
+    response do |format|
+      format.js
     end
   end
 

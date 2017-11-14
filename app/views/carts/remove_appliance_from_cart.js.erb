@@ -1,0 +1,5 @@
+<% if session[:furniture].blank? && session[:appliance].blank? %>
+$('#appliances_table').html('<h4>Ваша Корзина Пуста</h4>');
+<% else %>
+$('#appliances_table').html('<%= escape_javascript(render partial: 'carts/from_appliances', locals: {appliances: @appliances}) %>');
+<% end %>
