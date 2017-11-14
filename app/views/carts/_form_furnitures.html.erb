@@ -23,7 +23,7 @@
               <td><%= product[:color].name %></td>
               <td><%= product[:quantity] %></td>
               <td><img alt="product-img" width="85" height="85" class="" src="<%= product[:furniture].main_image.thumb.url %>"></td>
-              <td><%= price_for_cart(product[:furniture].price, product[:furniture].discount, product[:quantity]) %></td>
+              <td class="product-cart-price"><%= price_for_cart(product[:furniture].price, product[:furniture].discount, product[:quantity]) %></td>
               <td><div class="donate-top"><a data-remote="true" href="<%= remove_furniture_from_cart_path(product_id: product[:furniture].id) %>"><input style="background-color: orange;border-color: darkorange;font-size: 13px;width: 75%;" type="submit" value="Удалить из карзины"></a></div></td>
             </tr>
         <% end %>

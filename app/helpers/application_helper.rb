@@ -3,6 +3,8 @@ module ApplicationHelper
     finished_price = ''
     if discount > 0
       finished_price = (price*(1-discount.to_f/100))*quantity.to_i
+    else
+      finished_price = price*quantity.to_i
     end
     finished_price.round(2)
   end

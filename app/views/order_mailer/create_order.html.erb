@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<tr>
+  <td bgcolor="#ffffff" align="center" style="padding: 70px 15px 70px 15px;" class="section-padding">
+    <!--[if (gte mso 9)|(IE)]>
+    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+      <tr>
+        <td align="center" valign="top" width="500">
+    <![endif]-->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
+      <tbody><tr>
+        <td>
+          <!-- HERO IMAGE -->
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+              <td>
+                <!-- COPY -->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                  <tr>
+                    <td align="middle" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333;" class="padding">
+                      Данные о заказе:
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="middle" style="padding: 20px 0 0 0; font-size: 15px; font-family: Helvetica, Arial, sans-serif; color: #333333;" class="padding">
+                      Email: <%= @order.email %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="middle" style="padding: 20px 0 0 0; font-size: 15px; font-family: Helvetica, Arial, sans-serif; color: #333333;" class="padding">
+                      Номер телефона <%= @order.phone_number %>
+                    </td>
+                  </tr>
+                  <% if @order.furnitures.present? %>
+                    <tr>
+                      <td style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #333333;" class="padding">
+                        <p align="middle" style="padding: 20px 0 0 0; font-size: 15px; font-family: Helvetica, Arial, sans-serif; color: #333333;">Мебель</p>
+                        <ul style="padding: 0;text-align: -webkit-center;">
+                          <% @order.furnitures.each do |order_data| %>
+                              <% furniture = Furniture.find_by(id: order_data['furniture_id']) %>
+                              <% color = FurnitureColor.find_by(id: order_data['color']) %>
+                              <div style="display: inline-block;padding: 5px 5px 5px 5px;margin: 10px 20px 10px 20px;background-color: #eeeeee;text-align: -webkit-center;border: 1px solid #eeeeee;border-radius: 10px;">
+                                <p align="center">ID Продукта: <%= furniture.try(:id) %></p>
+                                <div>
+                                  <li style="font-size: 16px;display: inline-block; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">Название: <%= furniture.try(:title) %></li>
+                                </div>
+                                <div>
+                                  <li style="font-size: 16px;display: inline-block; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">Цена: <%= furniture.try(:price) %> р.</li>
+                                </div>
+                                <div>
+                                  <li style="font-size: 16px;display: inline-block; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">Количество: <%= order_data['quantity'] %></li>
+                                </div>
+                                <div>
+                                  <li style="font-size: 16px;display: inline-block; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">Цвет: <%= color.try(:name) %></li>
+                                </div>
+                                <div>
+                                  <% finish_p = furniture.try(:discount) > 0 ? (furniture.try(:price)*(1-furniture.try(:discount).to_f/100))*order_data['quantity'].to_i : furniture.try(:price)*order_data['quantity'].to_i %>
+                                  <li style="font-size: 16px;display: inline-block; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">Итоговая цена: <%= finish_p.round(2) %> р.</li>
+                                </div>
+                              </div>
+                          <% end %>
+                        </ul>
+                      </td>
+                    </tr>
+                  <% end %>
+                  <% if @order.appliances.present? %>
+                    <tr>
+                      <td style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #333333;" class="padding">
+                        <p align="middle" style="padding: 20px 0 0 0; font-size: 15px; font-family: Helvetica, Arial, sans-serif; color: #333333;">Техника</p>
+                        <ul style="padding: 0;text-align: -webkit-center;">
+                          <% @order.appliances.each do |order_data| %>
+                              <% appliance = Appliance.find_by(id: order_data['appliance_id']) %>
+                              <% color = ApplianceColor.find_by(id: order_data['color']) %>
+                              <div style="display: inline-block;padding: 5px 5px 5px 5px;margin: 10px 20px 10px 20px;background-color: #eeeeee;text-align: -webkit-center;border: 1px solid #eeeeee;border-radius: 10px;">
+                                <p align="center">ID Продукта: <%= appliance.try(:id) %></p>
+                                <div>
+                                  <li style="font-size: 16px;display: inline-block; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">Название: <%= appliance.try(:title) %></li>
+                                </div>
+                                <div>
+                                  <li style="font-size: 16px;display: inline-block; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">Цена: <%= appliance.try(:price) %> р.</li>
+                                </div>
+                                <div>
+                                  <li style="font-size: 16px;display: inline-block; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">Количество: <%= order_data['quantity'] %></li>
+                                </div>
+                                <div>
+                                  <li style="font-size: 16px;display: inline-block; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">Цвет: <%= color.try(:name) %></li>
+                                </div>
+                                <div>
+                                  <% finish_p = appliance.try(:discount) > 0 ? (appliance.try(:price)*(1-appliance.try(:discount).to_f/100))*order_data['quantity'].to_i : appliance.try(:price)*order_data['quantity'].to_i %>
+                                  <li style="font-size: 16px;display: inline-block; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">Итоговая цена: <%= finish_p.round(2) %> р.</li>
+                                </div>
+                              </div>
+                          <% end %>
+                        </ul>
+                      </td>
+                    </tr>
+                  <% end %>
+                  </tbody></table>
+              </td>
+            </tr>
+            </tbody></table>
+        </td>
+      </tr>
+      </tbody></table>
+    <!--[if (gte mso 9)|(IE)]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+  </td>
+</tr>

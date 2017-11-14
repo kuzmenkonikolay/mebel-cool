@@ -3371,3 +3371,19 @@ color: #888;
 .color_li_border {
     border: 1px solid darkkhaki;
 }
+
+.panel-primary > .panel-heading-cart {
+    color: #fff;
+    background-color: #66ce5b;
+    border-color: #66ce5b;
+}
+
+.btn-cart {
+    background-color: #66ce5b;
+    border-color: #66ce5b;
+}
+
+.btn-cart:hover{
+    background-color: #f7ec13;
+    border-color: #f7ec13;
+}

@@ -17,6 +17,7 @@ class CartsController < ApplicationController
   end
 
   def index
+    redirect_to root_path unless check_products
     @furnitures = []
     @appliances = []
     session[:furniture].keys.each do |key|
@@ -25,6 +26,27 @@ class CartsController < ApplicationController
 
     session[:appliance].keys.each do |key|
       @appliances << { appliance: Appliance.find_by(id: key), color: ApplianceColor.find_by(id: session[:appliance][key]['color']), quantity: session[:appliance][key]['quantity'] }
+    end
+  end
+
+  def create_order
+    furnitures = []
+    appliances = []
+    session[:furniture].keys.each do |key|
+      furnitures << { furniture_id: key, color: session[:furniture][key]['color'], quantity: session[:furniture][key]['quantity'] }
+    end
+    session[:appliance].keys.each do |key|
+      appliances << { appliance_id: key, color: session[:appliance][key]['color'], quantity: session[:appliance][key]['quantity'] }
+    end
+    order = Order.new(phone_number: params[:number], email: params[:email], furnitures: furnitures, appliances: appliances)
+
+    if order.save
+      render json: {status: 'success', msg: 'Заказ Оформлен'}
+      OrderMailer.create_order(order.id).deliver
+      session[:furniture] = {}
+      session[:appliance] = {}
+    else
+      render json: {status: 'error', msg: 'Что то пошло не так'}
     end
   end
 

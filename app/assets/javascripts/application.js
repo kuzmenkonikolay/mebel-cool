@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require style/bootstrap.min.js
 //= require style/move-top.js
 //= require style/gallery.js
 //= require style/jquery.etalage.min.js
@@ -24,5 +25,6 @@
 //= require style/owl.carousel.js
 //= require jquery.validate
 //= require inputmask
+//= require style/jquery.toast.js
 //= require jquery.inputmask
 //= require_dir style

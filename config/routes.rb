@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :contacts, only: [:create]
 
   post '/add_to_cart', to: 'carts#add_to_cart', as: :add_to_cart
+  post '/create_order', to: 'carts#create_order'
   get '/remove_furniture_from_cart', to: 'carts#remove_furniture_from_cart', as: :remove_furniture_from_cart
   get '/remove_appliance_from_cart', to: 'carts#remove_appliance_from_cart', as: :remove_appliance_from_cart
   resources :carts, only: :index
