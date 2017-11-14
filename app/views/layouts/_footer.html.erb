@@ -3,37 +3,29 @@
   <div class="container">
     <div class="footer-grids">
       <div class="col-md-4 footer-grid bottom-nav">
-        <h3>Categories </h3>
+        <h3>Мебель по Категориям </h3>
         <ul>
-          <li><a href="#">Benches</a></li>
-          <li><a href="#">Day Beds</a></li>
-          <li><a href="#">Chairs</a></li>
-          <li><a href="#">Sets</a></li>
-          <li><a href="#">Sections</a></li>
-          <li><a href="#">Sofa Set</a></li>
-          <li><a href="#">Tables</a></li>
+          <% @footer_furniture_categories.each do |fc| %>
+              <li><a href="<%= search_path(type: 'category', name: fc.name)%>"><%= fc.name %></a></li>
+          <% end %>
           <div class="clearfix"> </div>
         </ul>
       </div>
       <div class="col-md-4 footer-grid bottom-nav">
-        <h3>my Account </h3>
+        <h3>Техника по Категориям </h3>
         <ul>
-          <li><a href="#">My  Orders</a></li>
-          <li><a href="#">My Merchant returns</a></li>
-          <li><a href="#">My Address</a></li>
-          <li><a href="#">My Credit</a></li>
-          <li><a href="#">Personal Info</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="login.html">Register</a></li>
+          <% @footer_appliance_categories.each do |ac| %>
+              <li><a href="<%= search_app_path(type: 'category', name: ac.name)%>"><%= ac.name %></a></li>
+          <% end %>
           <div class="clearfix"> </div>
         </ul>
       </div>
       <div class="col-md-4  footer-grid">
-        <h3> My Address</h3>
+        <h3>Адрес</h3>
         <div class="bottom-icons">
           <ul>
-            <li><a class="home" href="#"><span> </span></a>Lorem ipsy street,Newyork</li>
-            <li><a class="mail" href="mailto:info@example.com"><span> </span>123 int@example.com</a></li>
+            <li><a class="home" href="#"><span> </span></a>г.Краснодар ул.Ставропольская 31-6</li>
+            <li><a class="mail" href="mailto:info@example.com"><span> </span>a.k.mebbel@gmail.com</a></li>
             <div class="clearfix"> </div>
           </ul>
 

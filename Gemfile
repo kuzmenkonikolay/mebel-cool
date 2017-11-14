@@ -26,6 +26,8 @@ gem "fog-aws"
 gem "mini_magick"
 gem 'figaro'
 
+gem 'font-awesome-sass'
+
 gem 'jquery-validation-rails'
 gem 'jquery-inputmask-rails', github: 'knapo/jquery-inputmask-rails'
 

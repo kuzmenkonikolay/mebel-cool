@@ -1,18 +1,16 @@
 <div  class="contact" id="contact">
   <div class="container">
     <div class="col-md-6 contact-left">
-      <h3>01<span> / </span> Get in Touch </h3>
-      <p class="style">Proin iaculis purus Consequent sem cure digni ssim.Donec pottitora entum suscipit aenem rhoncus.Proin iaculis purus Consequent sem cure digni ssim.Donec pottitora entum suscipit aenem rhoncus.</p>
+      <h3>01<span> / </span> Социальные сети </h3>
+      <p class="style">С каждым днем разнообразие продуктов, которые мы предоставляем, расширяется. Вы можете следить за обновлениями, используя социальные сети.</p>
       <ul class="soc_icons">
-        <li><a href="#"><i class="icon_1"></i><span>Google+ </span> </a></li>
-        <li><a href="#"><i class="icon_2"></i><span>Twitter </span> </a></li>
-        <li><a href="#"><i class="icon_3"></i><span>Facebook</span> </a></li>
-        <li><a href="#"><i class="icon_4"></i><span>Youtube</span> </a></li>
+        <li><a href="https://www.instagram.com/ak.23_mebel/"><i class="fa fa-instagram"></i><span>Instagram</span> </a></li>
+        <li><a href="https://vk.com/ak23mebel"><i class="fa fa-vk"></i><span>VKontake</span> </a></li>
       </ul>
       <div class="clear"> </div>
     </div>
     <div class="col-md-6 contact-right">
-      <h3>02<span> / </span>Sends us a Message</h3>
+      <h3>02<span> / </span>Свяжитесь с нами</h3>
       <div class="form">
         <%= form_for @contact_mail, url: contacts_path, validate: true do |f| %>
             <%= f.text_field :name, class: 'textbox', placeholder: 'Имя' %>
