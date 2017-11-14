@@ -720,7 +720,7 @@ a.button.rotate:hover,a.button.rotate:focus,a.button.rotate:active {
 }
 /*---------------*/
 div#testimonial {
-	background:url(../../assets/client-bg.jpg);
+	background:url(https://s3.amazonaws.com/mebel-cool/assets/client-bg.jpg);
 	background-size:cover;
 	-webkit-background-size:cover;
 	-o-background-size:cover;
@@ -2643,7 +2643,7 @@ color: #888;
 	width: 100%;
 	}
 	div#testimonial {
-	background: url(../../assets/client-bg.jpg);
+	background: url(https://s3.amazonaws.com/mebel-cool/assets/client-bg.jpg);
 	background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;

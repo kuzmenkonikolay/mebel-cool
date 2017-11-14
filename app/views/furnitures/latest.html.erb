@@ -16,7 +16,7 @@
             <div class="portfolio <%= product.furniture_categories.pluck(:name).map(&:downcase).join(' ') %> mix_all" data-cat="<%= product.furniture_categories.pluck(:name).map(&:downcase).join(' ') %>" style="display: inline-block; opacity: 1;">
               <div class="portfolio-wrapper">
                 <a href="#small-dialog<%= i %>" class="b-link-stripe b-animate-go  thickbox popup-with-zoom-anim">
-                  <img src="<%= product.main_image.home.url %>" /><div class="b-wrapper"><h2 class="b-animate b-from-left b-delay03 "><img src="assets/hover-img.png" alt=""/></h2>
+                  <img src="<%= product.main_image.home.url %>" /><div class="b-wrapper"><h2 class="b-animate b-from-left b-delay03 "><img src="https://s3.amazonaws.com/mebel-cool/assets/hover-img.png" alt=""/></h2>
                   <p class="b-animate b-from-right  b-delay03 "></p></div></a>
               </div>
             </div>
