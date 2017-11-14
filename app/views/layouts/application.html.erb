@@ -50,7 +50,8 @@
             <li class="<%= "#{controller_name}_#{action_name}" == 'furnitures_latest' ? 'active' : '' %>"><a href="<%= latest_path %>" data-hover="Последняя Мебель">Последняя Мебель</a></li>
             <li class="<%= "#{controller_name}_#{action_name}" == 'furnitures_index' || "#{controller_name}_#{action_name}" == 'furnitures_show' ? 'active' : '' %>"><a href="<%= furnitures_path %>" data-hover="Мебель">Мебель</a></li>
             <li class="<%= "#{controller_name}_#{action_name}" == 'appliances_index' || "#{controller_name}_#{action_name}" == 'appliances_show' ? 'active' : '' %>"><a href="<%= appliances_path %>" data-hover="Техника">Техника</a></li>
-            <li class=""<%= "#{controller_name}" == 'contacts' ? 'active' : '' %>"><a href="<%= contact_us_path %>" data-hover="Связаться с нами">Связаться с нами</a></li>
+            <li class="<%= "#{controller_name}" == 'contacts' ? 'active' : '' %>"><a href="<%= contact_us_path %>" data-hover="Связаться с нами">Связаться с нами</a></li>
+            <li class="cart-button <%= "#{controller_name}" == 'carts' ? 'active' : '' %> <%= 'hidden' if session[:furniture].blank? && session[:appliance].blank? %>"><a href="<%= carts_path %>" data-hover="Корзина">Корзина</a></li>
             <div class="clearfix"> </div>
           </ul>
         </div>

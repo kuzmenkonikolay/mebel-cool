@@ -13,4 +13,7 @@ Rails.application.routes.draw do
 
   get '/contact_us', to: 'contacts#contact_us', as: :contact_us
   resources :contacts, only: [:create]
+
+  post '/add_to_cart', to: 'carts#add_to_cart', as: :add_to_cart
+  resources :carts, only: :index
 end

@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'cart' %>
 <div class="product">
   <div class="container">
     <div class="col-md-9 ctnt-bar">
@@ -30,6 +31,7 @@
             });
           </script>
           <!--//details-product-slider-->
+          <%= hidden_field_tag :product_id, @furniture.id, id: 'product_id_input' %>
           <div class="details-left-slider">
             <ul id="etalage">
               <% @furniture.furniture_pictures.each do |img| %>
@@ -54,34 +56,44 @@
             </div>
             <h2 class="quick">Описание:</h2>
             <p class="quick_desc"> <%= @furniture.description %></p>
-            <ul class="product-colors">
+            <ul id="available-colors" class="product-colors">
               <h3>Доступные цвета:</h3>
-              <% @furniture.furniture_colors.each do |color| %>
-                  <li style="background-color: <%= color.rgb %>;"><a href="#"><span> </span></a></li>
+              <% @furniture.furniture_colors.each_with_index do |color, i| %>
+                  <%i+=1%>
+                  <li class="<%= i == 1 ? 'selected_color' : 'color_li_border'%>" data-color_id="<%= color.id %>" style="background-color: <%= color.rgb %>;"><a href="#"><span> </span></a></li>
               <% end %>
               <div class="clear"> </div>
             </ul>
             <ul class="size">
               <h3>Length</h3>
-              <li><a href="#">32</a></li>
-              <li><a href="#">34</a></li>
+              <li><a href="#">Высота: <% @furniture.height %></a></li>
+              <li><a href="#">Ширина: <% @furniture.widths %></a></li>
+              <li><a href="#">Глубина: <% @furniture.depth %></a></li>
             </ul>
             <div class="quantity_box">
-              <ul class="product-qty">
-                <span>Количество:</span>
-                <select>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                </select>
-              </ul>
+              <div class="row">
+                <ul class="product-qty">
+                  <div class="col-md-12">
+                    <div class="col-md-6" style="padding: 0;">
+                      <span>Количество:</span>
+                    </div>
+                    <div class="col-md-6">
+                      <select id="selectbox-quantity" style="margin: -3px 0px 15px 17px;">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                      </select>
+                    </div>
+                  </div>
+                </ul>
+              </div>
             </div>
             <div class="clearfix"></div>
             <div class="single-but">
-              <input type="submit" value="add to cart"/>
+              <input data-product_type="furniture" type="submit" value="add to cart" id="add_to_cart_button"/>
             </div>
           </div>
           <div class="clearfix"></div>
