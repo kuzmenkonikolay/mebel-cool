@@ -6,7 +6,7 @@
         <h3>Мебель по Категориям </h3>
         <ul>
           <% @footer_furniture_categories.each do |fc| %>
-              <li><a href="<%= search_path(type: 'category', name: fc.name)%>"><%= fc.name %></a></li>
+              <li><a href="<%= furnitures_path(type: 'category', name: fc.name)%>"><%= fc.name %></a></li>
           <% end %>
           <div class="clearfix"> </div>
         </ul>
@@ -15,7 +15,7 @@
         <h3>Техника по Категориям </h3>
         <ul>
           <% @footer_appliance_categories.each do |ac| %>
-              <li><a href="<%= search_app_path(type: 'category', name: ac.name)%>"><%= ac.name %></a></li>
+              <li><a href="<%= appliances_path(type: 'category', name: ac.name)%>"><%= ac.name %></a></li>
           <% end %>
           <div class="clearfix"> </div>
         </ul>

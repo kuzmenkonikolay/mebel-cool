@@ -14,9 +14,6 @@ class AppliancesController < ApplicationController
   end
 
   def show_more
-    p '--------------'
-    p params
-    p '--------------'
     @categories = ApplianceCategory.all
     if params[:type] == 'category'
       @appliances = ApplianceCategory.find_by(name: params[:name]).appliances
