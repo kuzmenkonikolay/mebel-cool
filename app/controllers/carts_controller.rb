@@ -22,11 +22,11 @@ class CartsController < ApplicationController
     @appliances = []
     session[:furniture].keys.each do |key|
       @furnitures << { furniture: Furniture.find_by(id: key), color: FurnitureColor.find_by(id: session[:furniture][key]['color']), quantity: session[:furniture][key]['quantity'] }
-    end
+    end if  session[:furniture].present?
 
     session[:appliance].keys.each do |key|
       @appliances << { appliance: Appliance.find_by(id: key), color: ApplianceColor.find_by(id: session[:appliance][key]['color']), quantity: session[:appliance][key]['quantity'] }
-    end
+    end if session[:appliance].present?
   end
 
   def create_order
